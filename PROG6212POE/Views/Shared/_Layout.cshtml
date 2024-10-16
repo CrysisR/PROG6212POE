@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PROG6212POE</title>
+    <link rel="stylesheet" href="~/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/PROG6212POE.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" asp-append-version="true" />
+    <!--Favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+<body data-bs-theme="dark">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm box-shadow mb-3 bg-dark" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a asp-controller="Home" asp-action="LandingPage" style="font-family:'Cascadia Code'; font-size:20px">
+                    <img src="~/android-chrome-192x192.png" style="width:25px; height:25px" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li>
+                            <h5 class="nav-link">|</h5>
+                        </li>
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Lecturer"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Claims" asp-action="CreateClaim">Claim</a>
+                            </li>
+                        }
+                    </ul>
+                    <ul class="navbar-nav flex-grow-0">
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("ProgrammeCoordinator") || User.IsInRole("AcademicManager"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-controller="Claims" asp-action="AllClaims">Claims List</a>
+                            </li>
+                        }
+@*                         @if (User.Identity.IsAuthenticated && User.IsInRole("HR"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-controller="HR" asp-action="Invoices">Invoice List</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-controller="HR" asp-action="ListLecturers">Lecturer List</a>
+                            </li>
+                        } *@
+                        @if(User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-controller="Roles" asp-action="PromoteLecturer">Promotion</a>
+                            </li>
+                        }
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("SuperAdmin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-controller="Roles" asp-action="ViewAdmins">Admins</a>
+                            </li>
+                        }
+                        <li>
+                            <h5 class="nav-link">|</h5>
+                        </li>
+                    </ul>
+                    <partial name="_LoginPartial"/> 
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

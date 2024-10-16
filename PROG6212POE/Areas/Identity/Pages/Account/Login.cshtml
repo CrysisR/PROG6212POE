@@ -1,0 +1,33 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+<partial name="_Toastr"/>
+<br />
+<div class="col-md-4 mx-auto">
+<h1>@ViewData["Title"]</h1>
+</div>
+<div class="row">
+    <div class="col-md-4 mx-auto">
+        <section>
+            <form id="account" method="post">
+                <hr />
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" required/>
+                    <label asp-for="Input.Email" class="form-label">Email</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" required/>
+                    <label asp-for="Input.Password" class="form-label">Password</label>
+                </div>
+                <br />
+                <div class="col-md-4 mx-auto">
+                    <button id="login-submit" type="submit" class="btn btn-primary" style="width:100px">Log in</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>

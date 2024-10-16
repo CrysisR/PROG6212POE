@@ -1,0 +1,31 @@
+﻿@using PROG6212POE.Areas.Identity.Data
+<partial name = "_Toastr"/>
+<!--View all admins-->
+@model List<ApplicationUser>
+<h2>Admin list</h2>
+<a asp-action="CreateAdmin" class="btn btn-outline-primary">Add admin</a>
+<div class="col-md-5 mx-auto">
+<table class="table">
+    <thead>
+        <tr>
+            <th style="background-color:mediumaquamarine" class="text-dark">Username</th>
+            <th style="background-color:mediumaquamarine" class="text-dark">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.UserName</td>
+                <td>
+                    <!--form that calls the DemoteAdmin method in the controller-->
+                    <form asp-action="DemoteAdmin" method="post" onsubmit="return confimr('Are you sure you want to demote this admin?')" class="me-2">
+                        <input type="hidden" name="userId" value="@item.Id"/>
+                        <button type="submit" class="btn btn-danger">Demote</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,25 @@
+﻿<!--generic class for generating success and error toastrs-->
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var message = '@TempData["message"]';
+        var messageType = '@TempData["messageType"]';
+
+        if (message) {
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "timeOut": "3000"
+            };
+            //message type
+            if (messageType === 'error') {
+
+                toastr.error(message);
+            } else {
+                toastr.success(message);
+            }
+        }
+    });
+</script>

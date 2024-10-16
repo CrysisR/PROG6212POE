@@ -1,0 +1,78 @@
+﻿<br />
+<partial name="_Toastr" />
+<div style="font-family:'Cascadia Code'">
+    <div class="col-md-7 mx-auto">
+        <h1>The Contract Monthly Claims System:</h1>
+        <h4>The answer to easy claims management</h4>
+        <br />
+        <h3>Welcome staff</h3>
+        <h4>Here are some pending claims</h4>
+        <div id="pendingClaimsCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        @if (Model != null && Model.Count > 0)
+        {
+            var isFirst = true;
+            foreach (var claim in Model)
+            {
+                <div class="carousel-item @(isFirst ? "active" : "")">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Pending Claim</h5>
+                            @{
+                                var description = TruncateDescription(claim.DescriptionOfWork, 10);
+                            }
+                            <p class="card-text">
+                                @description
+                            </p>
+                            <p class="card-text"><strong>Total Amount: </strong>@claim.TotalAmount.ToString("C")</p>
+                            <a href="@Url.Action("AllClaims", "Claims")" class="btn btn-primary">View All Claims</a>
+                        </div>
+                    </div>
+                </div>
+                isFirst = false;
+            }
+        }
+        else
+        {
+            <div class="carousel-item active">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">No Pending Claims</h5>
+                        <p class="card-text">There are no claims currently pending.</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#pendingClaimsCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#pendingClaimsCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+        <br />
+    </div>
+</div>
+
+@functions {
+    public string TruncateDescription(string description, int wordLimit)
+    {
+        if (string.IsNullOrWhiteSpace(description))
+        {
+            return "No description provided.";
+        }
+
+        var words = description.Split(' ');
+        if (words.Length <= wordLimit)
+        {
+            return description; // Return full description if less than the limit.
+        }
+
+        var truncated = string.Join(" ", words.Take(wordLimit));
+        return truncated + "..."; // Append ellipses after the truncated description.
+    }
+}

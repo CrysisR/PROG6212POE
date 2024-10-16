@@ -1,0 +1,101 @@
+﻿@model PROG6212POE.Models.Claims
+@{
+    ViewData["Title"] = "Claims";
+}
+<partial name="_Toastr"/>
+<br />
+<!--Create claim view-->
+<div class="col-md-3 mx-auto">
+    <h2>Create claim</h2>
+    <hr />
+    <br />
+</div>
+<div class="col-md-3 mx-auto">
+    <form asp-action="SubmitClaim" method="post" enctype="multipart/form-data" id="claimsForm">
+        <label>Lecturer Information</label>
+        <!--Using the controller, pull the lecturerId, name and surname into the textfields-->
+        <label class="text-muted fst-italic">This information has been autofilled</label>
+        <div class="form-group">
+            <label>Lecturer ID</label>
+            <input asp-for="LecturerId" required class="form-control disabled" placeholder="Lecturer ID" readonly />         
+        </div>
+        <br />
+        <div class="form-group">
+            <label>First Name</label>
+            <input asp-for="FirstName" required class="form-control" placeholder="First Name" readonly />          
+        </div>
+        <br />
+        <div class="form-group">
+            <label>Last Name</label>
+            <input asp-for="LastName" required class="form-control" placeholder="Last Name" readonly />    
+        </div>
+        <br />
+        <!--Dates-->
+        <label>Claims Dates</label>
+        <br />
+        <label>Start date</label>
+        <div class="form-group">
+            <input asp-for="ClaimsPeriodStart" type="date" class="form-control" required placeholder="Start Date" id="startDateInput" value="" />        
+        </div>
+        <br />
+        <label>End date</label>
+        <div class="form-group">
+            <input asp-for="ClaimsPeriodEnd" type="date" class="form-control" required placeholder="End Date" id="endDateInput" value="" />        
+        </div>
+        <br />
+        <label>Cost</label>
+        <div class="form-group">
+            <input asp-for="HoursWorked" class="form-control" id="hoursWorked" required placeholder="Total work hours" value="" />          
+        </div>
+        <br />
+        <div class="form-group">
+            <input asp-for="RatePerHour" class="form-control" id="ratePerHour" required placeholder="Rate per hour (R)" value="" />         
+        </div>
+        <br />
+        <div class="form-group">
+            <textarea asp-for="DescriptionOfWork" class="form-control" required placeholder="Description of claim (Expand)" value=""></textarea>    
+        </div>
+        <br />
+        <label>Documents</label>
+        <!--file input that supports multiple files-->
+        <div class="form-group">
+            <input asp-for="SupportingDocuments" type="file" class="form-control" multiple class="form-control" placeholder="files" id="fileUpload" accept=".pdf, .xlsx, .docx, .pptx, .png, .jpg" />
+            <i>Max 5 mbs(.pdf, .xlsx, .docx, .pptx, .png, .jpg)</i>
+            <!--stores the names of the files-->
+            <div id="fileNames" style="margin-top: 10px" class="text-muted">
+            </div>
+        </div>
+        <br />
+        <br />
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<!--Scripts for the view-->
+@section Scripts {
+    <script>
+        // Get the current date
+        var today = new Date();
+
+        // Format to date
+        var formattedDate = today.toISOString().slice(0, 16);
+
+        // Set the min attribute to the current date and time
+        document.getElementById('endDateInput').setAttribute('min', formattedDate);
+        document.getElementById('startDateInput').setAttribute('min', formattedDate);
+
+        //for showing file name in upload        
+        document.getElementById('fileUpload').addEventListener('change', function (event) {
+            const files = event.target.files;
+            const fileNamesDiv = document.getElementById('fileNames');
+            fileNamesDiv.innerHTML = '';
+
+            // Loop through files and display file names
+            for (let i = 0; i < files.length; i++) {
+                const fileName = files[i].name;
+                const listItem = document.createElement('div');
+                listItem.textContent = fileName;
+                fileNamesDiv.appendChild(listItem);
+            }
+        });
+    </script>
+}

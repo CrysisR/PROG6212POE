@@ -1,0 +1,84 @@
+﻿@model List<PROG6212POE.Models.Claims>
+<!--Partial for the toastr-->
+<partial name="_Toastr" />
+<br />
+<h1 class="text-center">All Claims</h1>
+<hr />
+<div class="container">
+    <div class="row">
+        <!--Menu for sorting by the various status's-->
+        <div class="col-md-3">
+            <div class="list-group">
+                <a asp-action="AllClaims" asp-route-sortStatus="Approved" class="list-group-item list-group-item-action btn btn-success">Approved</a>
+                <br />
+                <a asp-action="AllClaims" asp-route-sortStatus="Denied" class="list-group-item list-group-item-action btn btn-danger">Denied</a>
+                <br />
+                <a asp-action="AllClaims" asp-route-sortStatus="Pending" class="list-group-item list-group-item-action btn btn-warning">Pending</a>
+                <br />
+                <a asp-action="AllClaims" class="list-group-item list-group-item-action btn btn-secondary">Reset</a>
+            </div>
+        </div>
+
+        <!--claims using card items-->
+        <div class="col-md-9">
+            <div class="row">
+                @if (Model.Any())
+                {
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-6 mb-3">
+                            <div class="card">
+                                <div class="card-header bg-info text-white">
+                                    Claim ID: @item.ClaimId
+                                </div>
+                                <div class="card-body">
+                                    <p><strong>Status:</strong>
+                                        @if (item.Status == "Pending")
+                                        {
+                                            <span class="badge bg-warning">@item.Status</span>
+                                        }
+                                        else if (item.Status == "Approved")
+                                        {
+                                            <span class="badge bg-success">@item.Status</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-danger">@item.Status</span>
+                                        }
+                                    </p>
+                                    <!--Passes claim id to the ViewClaimDetails method, so the correct claim is pulled-->
+                                    <a asp-action="ViewClaimDetails" asp-route-id="@item.ClaimId" class="btn btn-outline-primary">View Claim Details</a>
+
+                                    @if (item.Status != "Approved" && item.Status != "Denied")
+                                    {
+                                        <!--Form tags for approving and denying claims, methods are stored in the controller-->
+                                        <div class="mt-2">
+                                            <form asp-action="ApproveClaim" method="post" onsubmit="return confirm('Are you sure you want to approve this claim?');" class="d-inline">
+                                                <input type="hidden" name="id" value="@item.ClaimId" />
+                                                <button type="submit" class="btn btn-success">Approve</button>
+                                            </form>
+
+                                            <form asp-action="DenyClaim" method="post" onsubmit="return confirm('Are you sure you want to deny this claim?');" class="d-inline ms-2">
+                                                <input type="hidden" name="id" value="@item.ClaimId" />
+                                                <button type="submit" class="btn btn-danger">Deny</button>
+                                            </form>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                <!--If there are no claims-->
+                else
+                {
+                    <div class="col-md-12">
+                        <div class="alert alert-warning text-center">
+                            No claims to display.
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

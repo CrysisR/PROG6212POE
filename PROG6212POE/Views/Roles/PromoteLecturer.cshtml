@@ -1,0 +1,36 @@
+﻿@using PROG6212POE.Areas.Identity.Data
+@model List<ApplicationUser>
+<partial name="_Toastr"/>
+    <h2>Promote User</h2>
+    <br />
+<div class="col-md-5 mx-auto">
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="background-color:mediumaquamarine" class="text-dark">Username</th>
+                <th style="background-color:mediumaquamarine" class="text-dark">Role</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.UserName</td>
+                <td>
+                    <div>
+                        <form asp-action="PromoteUser" method="post" class="d-flex align-items-center">
+                        <input type="hidden" name="userId" value="@item.Id" />
+                        <select name="newRole" class="form-control" style="margin-right: 30px">
+                            <option value="AcademicManager">Academic Manager</option>
+                            <option value="ProgrammeCoordinator">Programme Coordinator</option>
+                            <option value="HR">HR</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary">Promote</button>
+                    </form>
+                    </div>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    </div>

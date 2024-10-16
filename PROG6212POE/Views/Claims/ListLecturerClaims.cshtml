@@ -1,0 +1,46 @@
+﻿@model IEnumerable<PROG6212POE.Models.Claims>
+
+<div class="container col-md-5 mx-auto">
+    <br />
+<h1>@User.Identity?.Name Claims</h1>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th style="background-color:mediumaquamarine" class="text-dark">Claim ID</th>
+            <th style="background-color:mediumaquamarine" class="text-dark">Status</th>
+            <th style="background-color:mediumaquamarine" class="text-dark">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var claim in Model)
+        {
+            <tr>
+                    <td>
+                        @claim.ClaimId
+                        <a asp-action="ViewClaimDetails" asp-route-id="@claim.ClaimId">
+                            [Claim Details]
+                        </a>
+                    </td>
+                <td>
+                    @if (claim.Status == "Pending")
+                    {
+                        <span class="badge bg-warning">@claim.Status</span>
+                    }
+                        else if (claim.Status == "Approved")
+                    {
+                        <span class="badge bg-success">@claim.Status</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">@claim.Status</span>
+                    }
+                </td>
+                <td>
+                    <button class="btn btn-danger">Cancel approval</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

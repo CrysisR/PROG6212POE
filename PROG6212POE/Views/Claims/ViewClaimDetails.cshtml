@@ -1,0 +1,94 @@
+﻿@model PROG6212POE.Models.Claims
+<!--Using bootstrap card body items for styling purposes-->
+<a asp-action="AllClaims" class="btn btn-secondary mb-3">Back to Claims List</a>
+<br /><br />
+<div class="card">
+    <div class="card-header bg-info text-white">
+        <h2>Claim Details</h2>
+    </div>
+    @if (Model != null)
+    {
+        <!--Card item for lecturer information-->
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Lecturer Information</h5>
+                            <p><strong>Lecturer ID:</strong> @Model.LecturerId</p>
+                            <p><strong>First Name:</strong> @Model.FirstName</p>
+                            <p><strong>Last Name:</strong> @Model.LastName</p>
+                        </div>
+                    </div>
+                </div>
+                <!--Claim date information-->
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Claim Period</h5>
+                            <p><strong>Start:</strong> @Model.ClaimsPeriodStart</p>
+                            <p><strong>End:</strong> @Model.ClaimsPeriodEnd</p>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Payment information-->
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Work Information</h5>
+                            <p><strong>Hours Worked:</strong> @Model.HoursWorked</p>
+                            <p><strong>Rate Per Hour:</strong> @Model.RatePerHour.ToString("C")</p>
+                            <p><strong>Total Amount:</strong> @Model.TotalAmount.ToString("C")</p>
+                        </div>
+                    </div>
+                </div>
+                <!--description of work-->
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Description of Work</h5>
+                            <textarea class="form-control" readonly style="background-color: transparent; border: none; resize: none;">@Model.DescriptionOfWork</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--shows documents-->
+            <div class="card col-md-6">
+                <div class="card-body">
+                    <h5 class="card-title">Supporting Documents</h5>
+                    @if (!string.IsNullOrEmpty(Model.SupportingDocumentsPaths))
+                    {
+                        <div class="card border-info">
+                            <div class="card-body">
+                                <ul class="list-group">
+                                    @foreach (var path in Model.SupportingDocumentsPaths.Split(";"))
+                                    {
+                                        <li class="list-group-item">
+                                            <a href="@path" target="_blank" class="btn btn-outline-primary">View Document</a>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-secondary">
+                            No documents uploaded
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+    <!--If there are no claims-->
+    else
+    {
+        <div class="card-body">
+            <h3 class="text-danger">There is nothing to claim here</h3>
+        </div>
+    }
+</div>

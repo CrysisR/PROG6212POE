@@ -1,0 +1,16 @@
+﻿<br />
+<div class="col-md-4 mx-auto">
+<h1>Welcome @User.Identity?.Name</h1>
+<br />
+<!--<a> tag that only shows up if you are a admin-->
+    @if (User.IsInRole("Lecturer"))
+    {
+        <a class="btn btn-primary" asp-controller="Claims" asp-action="ListLecturerClaims">See all past claims</a>
+    }
+<br />
+<br />
+<form asp-action="Logout" asp-controller="UserAccount" method="post">
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-danger text-light">Logout</button>
+</form>
+</div>
