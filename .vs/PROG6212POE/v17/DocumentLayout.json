@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Niel\\source\\repos\\PROG6212POE\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{26C48438-CD53-4DF5-92D2-CBBA6D0BB1E1}|PROG6212POETesting\\PROG6212POETesting.csproj|c:\\users\\niel\\source\\repos\\prog6212poe\\prog6212poetesting\\rolescontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26C48438-CD53-4DF5-92D2-CBBA6D0BB1E1}|PROG6212POETesting\\PROG6212POETesting.csproj|solutionrelative:prog6212poetesting\\rolescontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BBC68CCD-1067-45A9-BAF9-62DC0CFB62E2}|PROG6212POE\\PROG6212POE.csproj|c:\\users\\niel\\source\\repos\\prog6212poe\\prog6212poe\\views\\home\\stafflandingpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BBC68CCD-1067-45A9-BAF9-62DC0CFB62E2}|PROG6212POE\\PROG6212POE.csproj|solutionrelative:prog6212poe\\views\\home\\stafflandingpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBC68CCD-1067-45A9-BAF9-62DC0CFB62E2}|PROG6212POE\\PROG6212POE.csproj|c:\\users\\niel\\source\\repos\\prog6212poe\\prog6212poe\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBC68CCD-1067-45A9-BAF9-62DC0CFB62E2}|PROG6212POE\\PROG6212POE.csproj|solutionrelative:prog6212poe\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BBC68CCD-1067-45A9-BAF9-62DC0CFB62E2}|PROG6212POE\\PROG6212POE.csproj|c:\\users\\niel\\source\\repos\\prog6212poe\\prog6212poe\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BBC68CCD-1067-45A9-BAF9-62DC0CFB62E2}|PROG6212POE\\PROG6212POE.csproj|solutionrelative:prog6212poe\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26C48438-CD53-4DF5-92D2-CBBA6D0BB1E1}|PROG6212POETesting\\PROG6212POETesting.csproj|c:\\users\\niel\\source\\repos\\prog6212poe\\prog6212poetesting\\claimscontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26C48438-CD53-4DF5-92D2-CBBA6D0BB1E1}|PROG6212POETesting\\PROG6212POETesting.csproj|solutionrelative:prog6212poetesting\\claimscontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BBC68CCD-1067-45A9-BAF9-62DC0CFB62E2}|PROG6212POE\\PROG6212POE.csproj|c:\\users\\niel\\source\\repos\\prog6212poe\\prog6212poe\\controllers\\claimscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBC68CCD-1067-45A9-BAF9-62DC0CFB62E2}|PROG6212POE\\PROG6212POE.csproj|solutionrelative:prog6212poe\\controllers\\claimscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBC68CCD-1067-45A9-BAF9-62DC0CFB62E2}|PROG6212POE\\PROG6212POE.csproj|c:\\users\\niel\\source\\repos\\prog6212poe\\prog6212poe\\models\\claims.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBC68CCD-1067-45A9-BAF9-62DC0CFB62E2}|PROG6212POE\\PROG6212POE.csproj|solutionrelative:prog6212poe\\models\\claims.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BBC68CCD-1067-45A9-BAF9-62DC0CFB62E2}|PROG6212POE\\PROG6212POE.csproj|c:\\users\\niel\\source\\repos\\prog6212poe\\prog6212poe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBC68CCD-1067-45A9-BAF9-62DC0CFB62E2}|PROG6212POE\\PROG6212POE.csproj|solutionrelative:prog6212poe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BBC68CCD-1067-45A9-BAF9-62DC0CFB62E2}|PROG6212POE\\PROG6212POE.csproj|c:\\users\\niel\\source\\repos\\prog6212poe\\prog6212poe\\views\\claims\\allclaims.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BBC68CCD-1067-45A9-BAF9-62DC0CFB62E2}|PROG6212POE\\PROG6212POE.csproj|solutionrelative:prog6212poe\\views\\claims\\allclaims.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -51,64 +47,54 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "RolesControllerTest.cs",
-              "DocumentMoniker": "C:\\Users\\Niel\\source\\repos\\PROG6212POE\\PROG6212POETesting\\RolesControllerTest.cs",
-              "RelativeDocumentMoniker": "PROG6212POETesting\\RolesControllerTest.cs",
-              "ToolTip": "C:\\Users\\Niel\\source\\repos\\PROG6212POE\\PROG6212POETesting\\RolesControllerTest.cs",
-              "RelativeToolTip": "PROG6212POETesting\\RolesControllerTest.cs",
-              "ViewState": "AgIAAK8AAAAAAAAAAAAswEoAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T16:28:22.07Z",
+              "Title": "StaffLandingPage.cshtml",
+              "DocumentMoniker": "C:\\Users\\Niel\\source\\repos\\PROG6212POE\\PROG6212POE\\Views\\Home\\StaffLandingPage.cshtml",
+              "RelativeDocumentMoniker": "PROG6212POE\\Views\\Home\\StaffLandingPage.cshtml",
+              "ToolTip": "C:\\Users\\Niel\\source\\repos\\PROG6212POE\\PROG6212POE\\Views\\Home\\StaffLandingPage.cshtml",
+              "RelativeToolTip": "PROG6212POE\\Views\\Home\\StaffLandingPage.cshtml",
+              "ViewState": "AgIAAEgAAAAAAAAAAADwv14AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-18T07:45:39.7Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ClaimsControllerTest.cs",
-              "DocumentMoniker": "C:\\Users\\Niel\\source\\repos\\PROG6212POE\\PROG6212POETesting\\ClaimsControllerTest.cs",
-              "RelativeDocumentMoniker": "PROG6212POETesting\\ClaimsControllerTest.cs",
-              "ToolTip": "C:\\Users\\Niel\\source\\repos\\PROG6212POE\\PROG6212POETesting\\ClaimsControllerTest.cs",
-              "RelativeToolTip": "PROG6212POETesting\\ClaimsControllerTest.cs",
-              "ViewState": "AgIAAMwAAAAAAAAAAAAAADwAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T16:23:53.027Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "RolesController.cs",
-              "DocumentMoniker": "C:\\Users\\Niel\\source\\repos\\PROG6212POE\\PROG6212POE\\Controllers\\RolesController.cs",
-              "RelativeDocumentMoniker": "PROG6212POE\\Controllers\\RolesController.cs",
-              "ToolTip": "C:\\Users\\Niel\\source\\repos\\PROG6212POE\\PROG6212POE\\Controllers\\RolesController.cs",
-              "RelativeToolTip": "PROG6212POE\\Controllers\\RolesController.cs",
-              "ViewState": "AgIAAJgAAAAAAAAAAAAAAIcAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T16:23:16.665Z",
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Niel\\source\\repos\\PROG6212POE\\PROG6212POE\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "PROG6212POE\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Niel\\source\\repos\\PROG6212POE\\PROG6212POE\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "PROG6212POE\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBkAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-18T07:40:40.158Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Claims.cs",
-              "DocumentMoniker": "C:\\Users\\Niel\\source\\repos\\PROG6212POE\\PROG6212POE\\Models\\Claims.cs",
-              "RelativeDocumentMoniker": "PROG6212POE\\Models\\Claims.cs",
-              "ToolTip": "C:\\Users\\Niel\\source\\repos\\PROG6212POE\\PROG6212POE\\Models\\Claims.cs",
-              "RelativeToolTip": "PROG6212POE\\Models\\Claims.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAAcAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T06:21:50.973Z"
+              "Title": "AllClaims.cshtml",
+              "DocumentMoniker": "C:\\Users\\Niel\\source\\repos\\PROG6212POE\\PROG6212POE\\Views\\Claims\\AllClaims.cshtml",
+              "RelativeDocumentMoniker": "PROG6212POE\\Views\\Claims\\AllClaims.cshtml",
+              "ToolTip": "C:\\Users\\Niel\\source\\repos\\PROG6212POE\\PROG6212POE\\Views\\Claims\\AllClaims.cshtml",
+              "RelativeToolTip": "PROG6212POE\\Views\\Claims\\AllClaims.cshtml",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAEgAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-18T07:36:38.883Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Niel\\source\\repos\\PROG6212POE\\PROG6212POE\\Program.cs",
-              "RelativeDocumentMoniker": "PROG6212POE\\Program.cs",
-              "ToolTip": "C:\\Users\\Niel\\source\\repos\\PROG6212POE\\PROG6212POE\\Program.cs",
-              "RelativeToolTip": "PROG6212POE\\Program.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAADQAAAAMAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "ClaimsController.cs",
+              "DocumentMoniker": "C:\\Users\\Niel\\source\\repos\\PROG6212POE\\PROG6212POE\\Controllers\\ClaimsController.cs",
+              "RelativeDocumentMoniker": "PROG6212POE\\Controllers\\ClaimsController.cs",
+              "ToolTip": "C:\\Users\\Niel\\source\\repos\\PROG6212POE\\PROG6212POE\\Controllers\\ClaimsController.cs",
+              "RelativeToolTip": "PROG6212POE\\Controllers\\ClaimsController.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAAAFsAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T06:18:39.18Z"
+              "WhenOpened": "2024-10-18T07:29:55.445Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -63,28 +63,31 @@ namespace PROG6212POE.Controllers
                 var allowedExtensions = new[] { ".pdf", ".xlsx", ".docx", ".pptx", ".png", ".jpg" };
 
                 //since there are multiple files, need a foreach loop
-                foreach (var formFile in claims.SupportingDocuments)
+                if (claims.SupportingDocuments != null)
                 {
-                    //lowercasing the extension and checking it against the array
-                    var extension = Path.GetExtension(formFile.FileName).ToLowerInvariant();
-                    //fail for invalid file type
-                    if (string.IsNullOrEmpty(extension) || !allowedExtensions.Contains(extension))
+                    foreach (var formFile in claims.SupportingDocuments)
                     {
-                        ModelState.AddModelError("", "Invalid file type");
-                        TempData["message"] = "Invalid file type";
-                        TempData["messageType"] = "error";
-                        //the .keep method ensures that the message is kept through redirects
-                        TempData.Keep("message");
-                        return View("CreateClaim");
-                    }
-                    //fail for too big size file
-                    if(formFile.Length > 5 * 1024 * 1024)
-                    {
-                        ModelState.AddModelError("", "File too large");
-                        TempData["message"] = "File exceeds 5mbs";
-                        TempData["messageType"] = "error";
-                        TempData.Keep("message");
-                        return View("CreateClaim");
+                        //lowercasing the extension and checking it against the array
+                        var extension = Path.GetExtension(formFile.FileName).ToLowerInvariant();
+                        //fail for invalid file type
+                        if (string.IsNullOrEmpty(extension) || !allowedExtensions.Contains(extension))
+                        {
+                            ModelState.AddModelError("", "Invalid file type");
+                            TempData["message"] = "Invalid file type";
+                            TempData["messageType"] = "error";
+                            //the .keep method ensures that the message is kept through redirects
+                            TempData.Keep("message");
+                            return View("CreateClaim");
+                        }
+                        //fail for too big size file
+                        if (formFile.Length > 5 * 1024 * 1024)
+                        {
+                            ModelState.AddModelError("", "File too large");
+                            TempData["message"] = "File exceeds 5mbs";
+                            TempData["messageType"] = "error";
+                            TempData.Keep("message");
+                            return View("CreateClaim");
+                        }
                     }
                 }
                 if (ModelState.IsValid)
