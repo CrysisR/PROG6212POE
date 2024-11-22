@@ -78,6 +78,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhaW1zXExpc3RMZWN0dXJlckNsYWltcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Niel/source/repos/PROG6212POE/PROG6212POE/Views/Claims/SetClaimCriteria.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhaW1zXFNldENsYWltQ3JpdGVyaWEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Niel/source/repos/PROG6212POE/PROG6212POE/Views/Claims/SubmitClaim.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhaW1zXFN1Ym1pdENsYWltLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -102,16 +106,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTdGFmZkxhbmRpbmdQYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Niel/source/repos/PROG6212POE/PROG6212POE/Views/HR/EditLecturer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSFJcRWRpdExlY3R1cmVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Niel/source/repos/PROG6212POE/PROG6212POE/Views/HR/HRIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSFJcSFJJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Niel/source/repos/PROG6212POE/PROG6212POE/Views/HR/Invoices.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSFJcSW52b2ljZXMuY3NodG1s
+[C:/Users/Niel/source/repos/PROG6212POE/PROG6212POE/Views/HR/InvoicingIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSFJcSW52b2ljaW5nSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Niel/source/repos/PROG6212POE/PROG6212POE/Views/HR/ListLecturers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSFJcTGlzdExlY3R1cmVycy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Niel/source/repos/PROG6212POE/PROG6212POE/Views/HR/PreviewInvoice.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSFJcUHJldmlld0ludm9pY2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Niel/source/repos/PROG6212POE/PROG6212POE/Views/Roles/CreateAdmin.cshtml]
@@ -140,10 +152,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Niel/source/repos/PROG6212POE/PROG6212POE/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Niel/source/repos/PROG6212POE/PROG6212POE/Views/UserAccount/UpdateLecturerInformation.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckFjY291bnRcVXBkYXRlTGVjdHVyZXJJbmZvcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Niel/source/repos/PROG6212POE/PROG6212POE/Views/UserAccount/UserAccountDetails.cshtml]

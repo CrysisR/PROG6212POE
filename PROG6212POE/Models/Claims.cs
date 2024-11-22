@@ -24,7 +24,7 @@ namespace PROG6212POE.Models
         public double RatePerHour { get; set; }
         [Required]
         public double TotalAmount { get; set; }
-        [Required]
+        
         public string? DescriptionOfWork { get; set; }
 
         //setting status to pending from the start since that is how all claims begin
@@ -34,7 +34,13 @@ namespace PROG6212POE.Models
         [NotMapped]
         public List<IFormFile>? SupportingDocuments { get; set; }
 
+        public ICollection<File>? SupportingDocumentFiles { get; set; }
+
         //how the application stores multiple files, seperates them with a ";" delimiter
-        public string? SupportingDocumentsPaths { get; set; }
+        public string? SupportingDocumentFileNames { get; set; }
+
+        public string? DecidedBy { get; set; } = "Pending";
+
+        public bool? InvoiceEmailed { get; set; } = false;
     }
 }

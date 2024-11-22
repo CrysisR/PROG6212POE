@@ -1,0 +1,60 @@
+﻿@using PROG6212POE.ViewModel;
+@model InvoiceViewModel
+<partial name="_Toastr"/>
+<br />
+<div class="container col-md-10 mx-auto">
+    <h2>Preview Invoice</h2>
+    <br />
+    <table class="table table-striped">
+        <tr>
+            <th>Lecturer ID</th>
+        <td>@Model.LecturerId</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>@Model.LecturerName</td>
+        </tr>
+        <tr>
+            <th>Claim ID</th>
+            <td>@Model.ClaimId</td>
+        </tr>
+        <tr>
+            <th>Claim Period</th>
+            <td>@Model.ClaimPeriod</td>
+        </tr>
+        <tr>
+            <th>Total Amount</th>
+            <td>R @Model.TotalAmount</td>
+        </tr>
+        <tr>
+            <th>Tax Rate</th>
+            <td>@(Model.TaxRate*100)%</td>
+        </tr>
+        <tr>
+            <th>Tax Amount</th>
+            <td>R @Model.TaxAmount</td>
+        </tr>
+        <tr>
+            <th>Total With Tax Deductions</th>
+            <td><strong>R @Model.TotalWithDeduction</strong></td>
+        </tr>
+    </table>
+    <br />
+    <form asp-action="EmailInvoice" method="post" onsubmit="return confirm('Are you sure you want to email this invoice?');">
+        <input type="hidden" name="lecturerId" value="@Model.LecturerId" />
+        <input type="hidden" name="claimId" value="@Model.ClaimId" />
+        <input type="hidden" name="taxRate" value="@Model.TaxRate" />
+        <input type="hidden" name="setAmount" value="@Model.SetAmount" />
+        <button id="emailInvoiceButton" type="submit" class="btn btn-primary" style="margin-right:15px">Email invoice</button>
+        <a id="cancelButton" asp-action="InvoicingIndex" class="btn btn-danger">Cancel</a>
+    </form>
+</div>
+
+<script>
+    document.getElementById('emailInvoiceButton').addEventListener('click', function () {
+        toastr.warning("Loading...");
+        setTimeout(function () {
+            document.getElementById('emailInvoiceButton').disabled = true;
+        }, 100);
+    });
+</script>

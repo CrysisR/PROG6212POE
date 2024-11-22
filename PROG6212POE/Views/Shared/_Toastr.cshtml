@@ -17,8 +17,11 @@
             if (messageType === 'error') {
 
                 toastr.error(message);
-            } else {
+            } else if (messageType === 'success') {
                 toastr.success(message);
+            }
+            else {
+                toastr.warning(message);
             }
         }
     });

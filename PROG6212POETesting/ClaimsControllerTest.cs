@@ -9,6 +9,7 @@ using PROG6212POE.Areas.Identity.Data;
 using PROG6212POE.Controllers;
 using PROG6212POE.Models;
 using System.Security.Claims;
+using PROG6212POE.ViewModel;
 
 public class ClaimsControllerTest
 {
@@ -89,7 +90,7 @@ public class ClaimsControllerTest
 
         // Using the inserts to check
         var redirectResult = Assert.IsType<RedirectToActionResult>(result);
-        Assert.Equal("LandingPage", redirectResult.ActionName);
+        Assert.Equal("ViewClaimDetails", redirectResult.ActionName);
         Assert.Equal(1, _context.Claims.Count());
     }
 
@@ -227,6 +228,154 @@ public class ClaimsControllerTest
         //toastr checks
         Assert.Equal("Claim denied", _controller.TempData["message"]);
         Assert.Equal("error", _controller.TempData["messageType"]);
+    }
+
+    //testing approveMatchingClaims method
+    [Fact]
+    public async Task ApproveMatchingClaims_ChangesToApproveAndRedirects()
+    {
+        //Seed data
+        var claim1 = new Claims
+        {
+            ClaimId = 1,
+            LecturerId = "LID-0001",
+            FirstName = "Jerry",
+            LastName = "Naidoo",
+            ClaimsPeriodStart = new DateOnly(2024, 1, 1),
+            ClaimsPeriodEnd = new DateOnly(2024, 1, 15),
+            RatePerHour = 5000,
+            HoursWorked = 1,
+            TotalAmount = 5000,
+            DescriptionOfWork = "This is a claim",
+            Status = "Pending",
+            SupportingDocumentFiles = new List<PROG6212POE.Models.File>()
+        };
+
+        var claim2 = new Claims
+        {
+            ClaimId = 2,
+            LecturerId = "LID-0002",
+            FirstName = "Jerry",
+            LastName = "Coffee",
+            ClaimsPeriodStart = new DateOnly(2024, 2, 1),
+            ClaimsPeriodEnd = new DateOnly(2024, 2, 15),
+            RatePerHour = 7000,
+            HoursWorked = 1,
+            TotalAmount = 7000,
+            DescriptionOfWork = "This is another claim",
+            Status = "Pending",
+            SupportingDocumentFiles = new List<PROG6212POE.Models.File>()
+        };
+
+        var claim3 = new Claims
+        {
+            ClaimId = 3,
+            LecturerId = "LID-0003",
+            FirstName = "Jerry",
+            LastName = "Admin",
+            ClaimsPeriodStart = new DateOnly(2024, 3, 1),
+            ClaimsPeriodEnd = new DateOnly(2024, 3, 15),
+            RatePerHour = 10000,
+            HoursWorked = 1,
+            TotalAmount = 10000,
+            DescriptionOfWork = null,
+            Status = "Pending",
+            SupportingDocumentFiles = new List<PROG6212POE.Models.File>()
+        };
+
+        _context.Claims.AddRange(claim1, claim2, claim3);
+        await _context.SaveChangesAsync();
+
+        var crieria = new CriteriaViewModel
+        {
+            AllowedStartDate = new DateOnly(2024, 1, 1),
+            AllowedEndDate = new DateOnly(2024, 12, 31),
+            TotalAmount = 8000,
+            RequireDescription = true,
+            MinimumDocuments = 0
+        };
+
+        //user
+        var user = new ClaimsPrincipal(new ClaimsIdentity(new[]
+        {
+            new Claim(ClaimTypes.Name, "ProgrammeCoordinatorUser"),
+            new Claim(ClaimTypes.Role, "ProgrammeCoordinator")
+        }, "mock"));
+
+        //set user in controller context
+        _controller.ControllerContext = new ControllerContext()
+        {
+            HttpContext = new DefaultHttpContext { User = user }
+        };
+
+        //Act
+        var result = await _controller.ApproveMatchingClaims(crieria);
+
+        //Assert
+        var approvedClaims = _context.Claims.Where(c => c.Status == "Approved").ToList();
+        //Only 2 claims should match, claim 1 and claim 2
+        Assert.Equal(2, approvedClaims.Count);
+        Assert.All(approvedClaims, c => Assert.Equal("ProgrammeCoordinatorUser", c.DecidedBy));
+
+        var redirectedResult = Assert.IsType<RedirectToActionResult>(result);
+        Assert.Equal("AllClaims", redirectedResult.ActionName);
+    }
+
+    //Testing for no claims that match
+    [Fact]
+    public async Task ApproveMatchingClaims_NoMatchingClaimsFound_RedirectWithError()
+    {
+        //arrange
+        //seed data
+        var claim1 = new Claims
+        {
+            ClaimId = 1,
+            LecturerId = "LID-0001",
+            FirstName = "Jerry",
+            LastName = "Naidoo",
+            ClaimsPeriodStart = new DateOnly(2024, 1, 1),
+            ClaimsPeriodEnd = new DateOnly(2024, 1, 15),
+            TotalAmount = 5000,
+            DescriptionOfWork = "This is a claim",
+            Status = "Pending",
+            SupportingDocumentFiles = new List<PROG6212POE.Models.File>()
+        };
+
+        _context.Claims.Add(claim1);
+        await _context.SaveChangesAsync();
+
+        var criteria = new CriteriaViewModel
+        {
+            AllowedStartDate = new DateOnly(2024, 2, 1),
+            AllowedEndDate = new DateOnly(2024, 12, 31),
+            TotalAmount = 4000,
+            RequireDescription = true,
+            MinimumDocuments = 1
+        };
+
+        //user
+        var user = new ClaimsPrincipal(new ClaimsIdentity(new[]
+        {
+            new Claim(ClaimTypes.Name, "ProgrammeCoordinatorUser"),
+            new Claim(ClaimTypes.Role, "ProgrammeCoordinator")
+        }, "mock"));
+
+        //set user in controller context
+        _controller.ControllerContext = new ControllerContext()
+        {
+            HttpContext = new DefaultHttpContext { User = user }
+        };
+
+        //act
+        var result = await _controller.ApproveMatchingClaims(criteria);
+
+        //Assert
+        var redirectedResult = Assert.IsType<RedirectToActionResult>(result);
+        Assert.Equal("SetClaimCriteria", redirectedResult.ActionName);
+
+        var tempDataMessage = _controller.TempData["message"]?.ToString();
+        Assert.Contains("No claims found matching those criteria", tempDataMessage);
+
     }
 
     // Helper Method to Mock UserManager with required dependencies

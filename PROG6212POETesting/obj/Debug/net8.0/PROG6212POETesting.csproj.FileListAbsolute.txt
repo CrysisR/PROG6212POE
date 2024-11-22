@@ -18,6 +18,9 @@ C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\PROG6
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\Azure.Core.dll
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\Azure.Identity.dll
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\Castle.Core.dll
+C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\EPPlus.dll
+C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\EPPlus.Interfaces.dll
+C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\EPPlus.System.Drawing.dll
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\Humanizer.dll
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
@@ -47,6 +50,8 @@ C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\Micro
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
@@ -64,6 +69,7 @@ C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\Micro
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\Microsoft.IO.RecyclableMemoryStream.dll
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\Microsoft.NET.StringTools.dll
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\Microsoft.TestPlatform.CoreUtilities.dll
@@ -105,6 +111,7 @@ C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\Syste
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\System.Memory.Data.dll
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\System.Reflection.MetadataLoadContext.dll
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\System.Runtime.Caching.dll
+C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\System.Security.Permissions.dll
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\System.Windows.Extensions.dll
@@ -322,9 +329,9 @@ C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\runti
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
+C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\runtimes\win\lib\net8.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
 C:\Users\Niel\source\repos\PROG6212POE\PROG6212POETesting\bin\Debug\net8.0\PROG6212POE.dll

@@ -52,15 +52,15 @@
                                 <a class="nav-link text-light" asp-controller="Claims" asp-action="AllClaims">Claims List</a>
                             </li>
                         }
-@*                         @if (User.Identity.IsAuthenticated && User.IsInRole("HR"))
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("HR"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-light" asp-controller="HR" asp-action="Invoices">Invoice List</a>
+                                <a class="nav-link text-light" asp-controller="HR" asp-action="InvoicingIndex">Invoice List</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-light" asp-controller="HR" asp-action="ListLecturers">Lecturer List</a>
                             </li>
-                        } *@
+                        }
                         @if(User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                         {
                             <li class="nav-item">

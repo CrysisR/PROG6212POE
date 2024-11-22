@@ -1,0 +1,32 @@
+﻿@using PROG6212POE.ViewModel;
+@model LecturerViewModel
+<div class="col-md-4 mx-auto">
+    <form asp-action="EditLecturer" method="post">
+        <input type="hidden" asp-for="UserId"/>
+        <br />
+        <h2>Edit lecturer</h2>
+        <hr />
+        <div class="form-floating mb-3">
+            <input asp-for="FirstName" class="form-control" placeholder="Tom"/>
+            <label asp-for="FirstName">First name</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input asp-for="LastName" class="form-control"placeholder="Walker" />
+            <label asp-for="LastName">Last name</label>
+        </div>
+        <br />
+        <div class="form-floating mb-3">
+            <input asp-for="Email" class="form-control" placeholder="name@example.com" />
+            <label asp-for="Email">Email</label>
+        </div>
+        <br />
+        <div class="form-floating mb-3">
+            <input asp-for="PhoneNumber" class="form-control" placeholder="012 345 6789" />
+            <label asp-for="PhoneNumber">Phone Number</label>
+        </div>
+        <br />
+        <div class="col-md-4 mx-auto">
+            <button type="submit" style="width:100px" class="btn btn-primary">Update</button>
+        </div>
+    </form>
+</div>

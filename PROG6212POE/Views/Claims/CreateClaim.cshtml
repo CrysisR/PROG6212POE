@@ -53,13 +53,13 @@
         </div>
         <br />
         <div class="form-group">
-            <textarea asp-for="DescriptionOfWork" class="form-control" required placeholder="Description of claim (Expand)" value=""></textarea>    
+            <textarea asp-for="DescriptionOfWork" class="form-control" placeholder="Description of claim (Expand)" value=""></textarea>    
         </div>
         <br />
         <label>Documents</label>
         <!--file input that supports multiple files-->
         <div class="form-group">
-            <input asp-for="SupportingDocuments" type="file" class="form-control" multiple class="form-control" placeholder="files" id="fileUpload" accept=".pdf, .xlsx, .docx, .pptx, .png, .jpg" />
+            <input asp-for="SupportingDocuments" type="file" class="form-control" multiple placeholder="files" id="fileUpload" accept=".pdf, .xlsx, .docx, .pptx, .png, .jpg" />
             <i>Max 5 mbs(.pdf, .xlsx, .docx, .pptx, .png, .jpg)</i>
             <!--stores the names of the files-->
             <div id="fileNames" style="margin-top: 10px" class="text-muted">

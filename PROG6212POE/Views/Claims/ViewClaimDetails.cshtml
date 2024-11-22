@@ -1,6 +1,18 @@
 ﻿@model PROG6212POE.Models.Claims
+<partial name="_Toastr"/>
 <!--Using bootstrap card body items for styling purposes-->
-<a asp-action="AllClaims" class="btn btn-secondary mb-3">Back to Claims List</a>
+@if (User.IsInRole("Lecturer"))
+{
+    <a asp-action="ListLecturerClaims" class="btn btn-secondary mb-3">Back to Claims List</a>
+}
+else if (User.IsInRole("ProgrammeCoordinator") || User.IsInRole("AcademicManager"))
+{
+    <a asp-action="AllClaims" class="btn btn-secondary mb-3">Back to Claims List</a>
+}
+else
+{
+    <a asp-action="InvoicingIndex" asp-controller="HR" class="btn btn-secondary mb-3">Back to Invoice List</a>
+}
 <br /><br />
 <div class="card">
     <div class="card-header bg-info text-white">
@@ -50,7 +62,15 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Description of Work</h5>
-                            <textarea class="form-control" readonly style="background-color: transparent; border: none; resize: none;">@Model.DescriptionOfWork</textarea>
+                            @if(!String.IsNullOrEmpty(Model.DescriptionOfWork)){
+                                <textarea class="form-control" readonly style="background-color: transparent; border: none; resize: none;">@Model.DescriptionOfWork</textarea>
+                            }
+                            else
+                            {
+                                <div class="alert alert-secondary">
+                                    No description provided
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>
@@ -59,16 +79,20 @@
             <div class="card col-md-6">
                 <div class="card-body">
                     <h5 class="card-title">Supporting Documents</h5>
-                    @if (!string.IsNullOrEmpty(Model.SupportingDocumentsPaths))
+                    @if (!string.IsNullOrEmpty(Model.SupportingDocumentFileNames))
                     {
                         <div class="card border-info">
                             <div class="card-body">
                                 <ul class="list-group">
-                                    @foreach (var path in Model.SupportingDocumentsPaths.Split(";"))
+                                    @foreach (var path in Model.SupportingDocumentFiles)
                                     {
-                                        <li class="list-group-item">
-                                            <a href="@path" target="_blank" class="btn btn-outline-primary">View Document</a>
-                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            @path.FileName
+                                            <a href="@Url.Action("DownloadFile", "Claims", new { fileId = path.FileId })" 
+                                                class="btn btn-outline-primary" target="_blank">
+                                                Download Document
+                                            </a>
+                                         </li>
                                     }
                                 </ul>
                             </div>

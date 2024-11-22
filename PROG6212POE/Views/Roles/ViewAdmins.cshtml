@@ -1,31 +1,49 @@
 ﻿@using PROG6212POE.Areas.Identity.Data
-<partial name = "_Toastr"/>
-<!--View all admins-->
 @model List<ApplicationUser>
-<h2>Admin list</h2>
-<a asp-action="CreateAdmin" class="btn btn-outline-primary">Add admin</a>
-<div class="col-md-5 mx-auto">
-<table class="table">
-    <thead>
-        <tr>
-            <th style="background-color:mediumaquamarine" class="text-dark">Username</th>
-            <th style="background-color:mediumaquamarine" class="text-dark">Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(var item in Model)
-        {
-            <tr>
-                <td>@item.UserName</td>
-                <td>
-                    <!--form that calls the DemoteAdmin method in the controller-->
-                    <form asp-action="DemoteAdmin" method="post" onsubmit="return confimr('Are you sure you want to demote this admin?')" class="me-2">
-                        <input type="hidden" name="userId" value="@item.Id"/>
-                        <button type="submit" class="btn btn-danger">Demote</button>
-                    </form>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<!--Partial for the toastr-->
+<partial name="_Toastr" />
+<br />
+<h1 class="text-center">All admins</h1>
+    <hr />
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="list-group">
+                <a asp-action="CreateAdmin" class="list-group-item list-group-item-action btn btn-primary">Add an admin</a>
+                <br />
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                @if (Model.Any())
+                {
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-6 mb-3">
+                            <div class="card">
+                                <div class="card-header bg-info text-white">
+                                    Username: @item.UserName
+                                </div>
+                                <div class="card-body">
+                                    <!--form that calls the DemoteAdmin method in the controller-->
+                                    <form asp-action="DemoteAdmin" method="post" onsubmit="return confirm('Are you sure you want to demote this admin?')" class="me-2">
+                                        <input type="hidden" name="userId" value="@item.Id" />
+                                        <button type="submit" class="btn btn-danger">Demote</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="col-md-12">
+                        <div class="alert alert-warning text-center">
+                            No Admins to demote.
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
 </div>

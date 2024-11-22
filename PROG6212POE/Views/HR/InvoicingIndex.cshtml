@@ -1,0 +1,44 @@
+﻿@model List<PROG6212POE.Models.Claims>
+<!--Partial for the toastr-->
+<partial name="_Toastr" />
+<br />
+<h1 class="text-center">Invoices</h1>
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-6 mb-3">
+                        <div class="card">
+                            <div class="card-header bg-info text-white">
+                                Claim ID: @item.ClaimId
+                             </div>
+                             <div class="card-body">
+
+                                <p>Lecturer ID : @item.LecturerId</p>
+                                <p>Decided By : @item.DecidedBy</p>
+                                @if (item.InvoiceEmailed == false)
+                                {
+                                    <p>
+                                        Invoice Emailed : <span class="badge bg-danger">No</span>
+                                    </p>
+                                    <a class="btn btn-primary" asp-action="PreviewInvoice" asp-route-lecturerId="@item.LecturerId" asp-route-claimId="@item.ClaimId">Generate invoice</a>
+                                }
+                                else
+                                {
+                                    <p>
+                                        Invoice Emailed : <span class="badge bg-success">Yes</span>
+                                    </p>
+                                }
+                                <!--Passes claim id to the ViewClaimDetails method, so the correct claim is pulled-->
+                                <a asp-action="ViewClaimDetails" asp-controller="Claims" asp-route-id="@item.ClaimId" class="btn btn-outline-primary">View Claim Details</a>
+                             </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

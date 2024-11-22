@@ -247,8 +247,10 @@ namespace PROG6212POE.Migrations
                     b.Property<DateOnly>("ClaimsPeriodStart")
                         .HasColumnType("date");
 
+                    b.Property<string>("DecidedBy")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("DescriptionOfWork")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
@@ -257,6 +259,9 @@ namespace PROG6212POE.Migrations
 
                     b.Property<double>("HoursWorked")
                         .HasColumnType("float");
+
+                    b.Property<bool?>("InvoiceEmailed")
+                        .HasColumnType("bit");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -272,7 +277,7 @@ namespace PROG6212POE.Migrations
                     b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SupportingDocumentsPaths")
+                    b.Property<string>("SupportingDocumentFileNames")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("TotalAmount")
@@ -281,6 +286,36 @@ namespace PROG6212POE.Migrations
                     b.HasKey("ClaimId");
 
                     b.ToTable("Claims");
+                });
+
+            modelBuilder.Entity("PROG6212POE.Models.File", b =>
+                {
+                    b.Property<int>("FileId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FileId"));
+
+                    b.Property<int?>("ClaimId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateUploaded")
+                        .HasColumnType("datetime2");
+
+                    b.Property<byte[]>("FileData")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<long?>("FileLength")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("FileName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("FileId");
+
+                    b.HasIndex("ClaimId");
+
+                    b.ToTable("Files");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -332,6 +367,20 @@ namespace PROG6212POE.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("PROG6212POE.Models.File", b =>
+                {
+                    b.HasOne("PROG6212POE.Models.Claims", "Claim")
+                        .WithMany("SupportingDocumentFiles")
+                        .HasForeignKey("ClaimId");
+
+                    b.Navigation("Claim");
+                });
+
+            modelBuilder.Entity("PROG6212POE.Models.Claims", b =>
+                {
+                    b.Navigation("SupportingDocumentFiles");
                 });
 #pragma warning restore 612, 618
         }

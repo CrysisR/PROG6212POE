@@ -17,11 +17,6 @@ namespace PROG6212POE.Controllers
         {
             return View();
         }
-        //part 3
-        //public IActionResult UpdateLecturerInformation()
-        //{
-        //    return View();
-        //}
 
         //custom logout since identity logout was not working
         [HttpPost]

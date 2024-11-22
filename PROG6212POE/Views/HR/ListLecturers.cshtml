@@ -1,29 +1,43 @@
-﻿@* <partial name="_Toastr" />
+﻿@using PROG6212POE.ViewModel
+@model IEnumerable<LecturerViewModel>
+<!--Partial for the toastr-->
+<partial name="_Toastr" />
 <br />
-<div class="container col-md-10 mx-auto">
-<h1>All lecturer</h1>
+<h1 class="text-center">All Lecturers</h1>
 <hr />
-<br />
-<table class="table">
-    <thead>
-        <tr>
-            <th style="background-color:mediumaquamarine" class="text-dark">Lecturer ID</th>
-            <th style="background-color:mediumaquamarine" class="text-dark">Username</th>
-            <th style="background-color:mediumaquamarine" class="text-dark">Email</th>
-            <th style="background-color:mediumaquamarine" class="text-dark">Phone number</th>
-            <th style="background-color:mediumaquamarine" class="text-dark">Action</t>
-        </tr>
-    </thead>
-    <tbody class="text-muted">
-        <tr>
-            <td>text goes here</td>
-            <td>text goes here</td>
-            <td>text goes here</td>
-            <td>text goes here</td>
-            <td>
-                <a asp-action="UpdateLecturerInformation" asp-controller="UserAccount" class="btn btn-info">Update user</a>
-            </td>
-        </tr>
-    </tbody>
-</table>
-</div> *@
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="row">
+                @if (Model.Any())
+                {
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-6 mb-3">
+                            <div class="card">
+                                <div class="card-header bg-info text-white">
+                                    Lecturer ID: @item.LecturerId
+                                </div>
+                                <div class="card-body">
+                                    <p>First Name : @item.FirstName</p>
+                                    <p>Last Name : @item.LastName</p>
+                                    <p>Email : @item.Email</p>
+                                    <p>Phone Number : @item.PhoneNumber</p>
+                                    <a asp-action="EditLecturer" asp-route-userId="@item.UserId" class="btn btn-info">Edit user</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="col-md-12">
+                        <div class="alert alert-warning text-center">
+                            No lecturers to update.
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

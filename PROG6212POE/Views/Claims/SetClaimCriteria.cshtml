@@ -1,0 +1,41 @@
+﻿@using PROG6212POE.ViewModel
+@model CriteriaViewModel
+
+<partial name="_Toastr" />
+<div class="container mt-4">
+    <div class="col-md-3 mx-auto">
+    <h3>Set Approval Criteria</h3>
+    <br />
+    <form asp-action="ApproveMatchingClaims" method="post">
+        <label>Dates</label>
+        <br />
+        <div class="form-group mt-3">
+            <input asp-for="AllowedStartDate" type="date" class="form-control" required placeholder="Start Date"/>
+        </div>
+        <br />
+        <div class="form-group mt-3">
+            <input asp-for="AllowedEndDate" type="date" class="form-control" required placeholder="End Date"/>
+        </div>
+        <br />
+        <label>Amount</label>
+        <br />
+        <div class="form-group mt-3">
+            <input asp-for="TotalAmount" type="number" step="1" class="form-control" required placeholder="Total amount" />
+        </div>
+        <br />
+        <div class="form-group mt-3">
+            <label asp-for="RequireDescription">Require Description?</label>
+            <br />
+            <input asp-for="RequireDescription" type="checkbox" class="form-check-input" />
+        </div>
+        <div class="form-group mt-3">
+            <label asp-for="MinimumDocuments">Minimum Number of Documents</label>
+            <br />
+            <br />
+            <input asp-for="MinimumDocuments" type="number" class="form-control" min="0" required />
+        </div>
+        <br />
+        <button type="submit" class="btn btn-success mt-4">Approve Matching Claims</button>
+    </form>
+    </div>
+</div>
